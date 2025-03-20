@@ -2,6 +2,7 @@
 
 import Hero from "@/components/custom/Hero";
 import Navbar from "@/components/custom/navbar";
+import TechStack from "@/components/custom/tech-stack";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -12,9 +13,10 @@ export default function Home() {
   }, []);
   if (!hasMounted) return null;
   return (
-    <div className="w-[40%] m-auto">
+    <div className="lg:w-[40%] md:w-[90%] m-auto">
       <Navbar />
       <Hero />
+      <TechStack/>
     </div>
   );
 }

@@ -8,13 +8,12 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <nav className="flex justify-between items-center p-4 border-b bg-background w-full">
-      <div className="flex gap-6 items-center">
-        jishnu pn.
-      </div>
+    <nav className="flex justify-between items-center p-4 lg:mt-12 border-b bg-background w-full">
+      <div className="flex gap-6 items-center">jishnu pn.</div>
 
       {/* Right: Dark Mode Toggle */}
       <div className="flex justify-between items-center gap-6">
+        <p>home</p>
         <p>projects</p>
         <p>blog</p>
         <Button

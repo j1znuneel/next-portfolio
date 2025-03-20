@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Manrope } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import { Layout } from "@/components/craft";
 import { ThemeProvider } from "next-themes";
-
+import { Background } from "@/components/custom/background";
 
 const font = Manrope({ subsets: ["latin"] });
 
@@ -26,6 +26,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Background />
         </ThemeProvider>
       </body>
     </Layout>
