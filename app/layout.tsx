@@ -4,15 +4,6 @@ import "./globals.css";
 import { Layout } from "@/components/craft";
 import { ThemeProvider } from "next-themes";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const font = Manrope({ subsets: ["latin"] });
 

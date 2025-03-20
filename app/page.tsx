@@ -2,7 +2,6 @@
 
 import Hero from "@/components/custom/Hero";
 import Navbar from "@/components/custom/navbar";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
