@@ -10,6 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
 
 interface Technology {
   name: string;
@@ -162,9 +163,11 @@ export default function TechStack() {
                     >
                       <div className="flex items-center  mx-5  ">
                         <div className="w-12 h-12 rounded-lg">
-                          <img
+                          <Image
                             src={tech.logo}
                             alt={`${tech.name} logo`}
+                            width={32}
+                            height={32}
                             className="w-8 h-8 object-contain dark:invert-10"
                           />
                         </div>
