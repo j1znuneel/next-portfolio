@@ -133,7 +133,7 @@ export default function TechStack() {
       transition={{ duration: 0.6 }}
       className="py-12"
     >
-      <h2 className="text-3xl text-left px-4 font-semibold mb-6">Tech Stack</h2>
+      <h2 className="text-3xl text-left md:px-4 font-semibold mb-6">Tech Stack</h2>
       <Carousel
         plugins={[
           Autoplay({
@@ -182,8 +182,8 @@ export default function TechStack() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="hidden md:block" />
+        <CarouselNext className="hidden md:block"/>
       </Carousel>
     </motion.section>
   );

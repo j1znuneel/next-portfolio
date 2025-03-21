@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <Layout className={font.className}>
-      <body className="px-4 xl:px-0">
+      <body className="px-4 xl:px-0 overflow-x-hidden">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
