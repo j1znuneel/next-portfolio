@@ -37,7 +37,7 @@ export default function Hero() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="md:w-32 md:h-32 w-16 h-16 rounded-full overflow-hidden border border-gray-400 shadow-md"
+            className="w-32 h-32 rounded-full overflow-hidden border border-gray-400 shadow-md"
           >
             <Image
               src={Me}
