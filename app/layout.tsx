@@ -20,13 +20,13 @@ export default function RootLayout({
   return (
     <Layout className={font.className}>
       <body className="px-4 xl:px-0 overflow-x-hidden">
+        <Background />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           disableTransitionOnChange
         >
           {children}
-          <Background />
         </ThemeProvider>
       </body>
     </Layout>
