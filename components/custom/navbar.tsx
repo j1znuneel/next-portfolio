@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex justify-between items-center p-4 lg:mt-12 border-b bg-background w-full">
-      <div className="flex gap-6 items-center">jishnu pn.</div>
+      <div className="flex gap-6 items-center font-semibold">jishnu pn.</div>
 
       {/* Right: Dark Mode Toggle */}
       <div className="flex justify-between items-center gap-6">

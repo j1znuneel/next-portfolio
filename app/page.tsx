@@ -1,5 +1,6 @@
 "use client"
 
+import Experience from "@/components/custom/experience";
 import Hero from "@/components/custom/Hero";
 import Navbar from "@/components/custom/navbar";
 import TechStack from "@/components/custom/tech-stack";
@@ -17,6 +18,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <TechStack/>
+      <Experience/>
     </div>
   );
 }

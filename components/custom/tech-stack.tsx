@@ -131,9 +131,9 @@ export default function TechStack() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="py-12"
+      className="py-12 border-b"
     >
-      <h2 className="text-3xl text-left md:px-4 font-semibold mb-6">Tech Stack</h2>
+      <h2 className="text-3xl text-left px-4 font-semibold mb-6">Tech Stack</h2>
       <Carousel
         plugins={[
           Autoplay({
@@ -165,7 +165,7 @@ export default function TechStack() {
                           <img
                             src={tech.logo}
                             alt={`${tech.name} logo`}
-                            className="w-8 h-8 object-contain"
+                            className="w-8 h-8 object-contain dark:invert-10"
                           />
                         </div>
                         <div>
@@ -182,8 +182,8 @@ export default function TechStack() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="hidden md:block" />
-        <CarouselNext className="hidden md:block"/>
+        <CarouselPrevious className="hidden md:flex md:justify-center" />
+        <CarouselNext className="hidden md:flex"/>
       </Carousel>
     </motion.section>
   );
