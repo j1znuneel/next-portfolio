@@ -86,6 +86,15 @@ function ExperienceCard({
   const cardRef = useRef(null);
   const isCardInView = useInView(cardRef, { once: false, margin: "-50px" });
 
+  const techStackVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.1 },
+    }),
+  };
+
   return (
     <motion.div
       ref={cardRef}
@@ -119,20 +128,26 @@ function ExperienceCard({
             ))}
           </ul>
 
-          <div className="flex mt-4 gap-3 flex-wrap items-center">
+          <motion.div
+            className="flex mt-4 gap-3 flex-wrap items-center"
+            initial="hidden"
+            animate={isCardInView ? "visible" : "hidden"}
+          >
             <TooltipProvider>
               {experience.techStack.map((tech, idx) => (
-                <Tooltip key={idx}>
-                  <TooltipTrigger className="p-2 bg-muted rounded-lg shadow-md hover:bg-muted/80 transition-all">
-                    {tech.icon}
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <span className="text-sm">{tech.name}</span>
-                  </TooltipContent>
-                </Tooltip>
+                <motion.div key={idx} custom={idx} variants={techStackVariants}>
+                  <Tooltip>
+                    <TooltipTrigger className="p-2 bg-muted rounded-lg shadow-md hover:bg-muted/80 transition-all">
+                      {tech.icon}
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <span className="text-sm">{tech.name}</span>
+                    </TooltipContent>
+                  </Tooltip>
+                </motion.div>
               ))}
             </TooltipProvider>
-          </div>
+          </motion.div>
         </CardContent>
       </Card>
     </motion.div>

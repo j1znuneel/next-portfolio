@@ -12,14 +12,14 @@ import X from "@/public/X.svg";
 
 export default function Hero() {
   const socialLinks = [
-    { href: "https://github.com/yourgithub", src: Github, alt: "GitHub" },
+    { href: "https://github.com/j1znuneel", src: Github, alt: "GitHub" },
     {
-      href: "https://linkedin.com/in/yourlinkedin",
+      href: "https://www.linkedin.com/in/jishnu-pn-6822762a5/",
       src: Linkedin,
       alt: "LinkedIn",
     },
-    { href: "https://medium.com/@yourmedium", src: Medium, alt: "Medium" },
-    { href: "https://twitter.com/yourX", src: X, alt: "X" },
+    // { href: "https://medium.com/@yourmedium", src: Medium, alt: "Medium" },
+    { href: "https://x.com/jishnupneel", src: X, alt: "X" },
   ];
 
   return (
