@@ -11,7 +11,7 @@ const personalProjects = [
       "A SaaS platform for LaTeX question paper generation.AI integration for question creation",
     dates: "2024 - Present",
     technologies: ["Next.js", "Django", "LaTeX", "OpenAI"],
-    image: "/exact-preview2.png",
+    image: "/exact-dashboard.png",
   },
   {
     title: "EXACT Landing page",
