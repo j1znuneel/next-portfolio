@@ -19,7 +19,7 @@ const personalProjects = [
     description: "A Landing Page created for the software Exact",
     dates: "2024 - Present",
     technologies: ["Next.js", "Django", "LaTeX", "OpenAI"],
-    image: "/exact-landingpage.png",
+    image: "/exact-new.png",
   },
   {
     title: "Personal Portfolio",

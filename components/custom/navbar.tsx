@@ -25,7 +25,9 @@ export default function Navbar() {
         <Link href="/projects" className="hover:underline">
           projects
         </Link>
-        <p>blog</p>
+        <Link href="/blog" className="hover:underline">
+          blog
+        </Link>
         <Button
           variant="ghost"
           size="icon"
