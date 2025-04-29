@@ -2,20 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 
 interface Technology {
   name: string;
   description: string;
   logo: string;
+  isBlack?: boolean;
 }
 
 interface TechCategory {
@@ -76,6 +69,7 @@ const techStack: TechCategory[] = [
         name: "Django",
         description: "Python web framework",
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+        isBlack:true
       },
     ],
   },
@@ -106,6 +100,7 @@ const techStack: TechCategory[] = [
         name: "GitHub",
         description: "Code hosting and collaboration platform",
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+        isBlack: true,
       },
       {
         name: "Figma",
@@ -129,65 +124,52 @@ const techStack: TechCategory[] = [
 export default function TechStack() {
   return (
     <motion.section
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="py-12 border-b"
+      className="py-12 px-4 border-b"
     >
-      <h2 className="text-3xl text-left px-4 font-semibold mb-6">Tech Stack</h2>
-      <Carousel
-        plugins={[
-          Autoplay({
-            delay: 2500, 
-          }),
-        ]}
-        className="w-full max-w-3xl mx-auto"
-      >
-        <CarouselContent>
-          {techStack.map((category) => (
-            <CarouselItem
-              key={category.name}
-              className="flex flex-col items-center"
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <h3 className="text-2xl text-left mb-4">{category.name}</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {category.technologies.map((tech) => (
-                    <Card
-                      key={tech.name}
-                      className="p-4 hover:shadow-lg transition-shadow h-full flex "
-                    >
-                      <div className="flex items-center  mx-5  ">
-                        <div className="w-12 h-12 rounded-lg">
-                          <Image
-                            src={tech.logo}
-                            alt={`${tech.name} logo`}
-                            width={32}
-                            height={32}
-                            className="w-8 h-8 object-contain dark:invert-10"
-                          />
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-lg">{tech.name}</h4>
-                          <p className="text-sm text-muted-foreground">
-                            {tech.description}
-                          </p>
-                        </div>
-                      </div>
-                    </Card>
-                  ))}
-                </div>
-              </motion.div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="hidden md:flex md:justify-center" />
-        <CarouselNext className="hidden md:flex"/>
-      </Carousel>
+      <h2 className="text-3xl font-semibold mb-8">Tech Stack</h2>
+      <div className="space-y-5">
+        {techStack.map((category) => (
+          <div key={category.name}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {category.technologies.map((tech) => (
+                <motion.div
+                  key={tech.name}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Card className="p-4 flex flex-row items-center gap-4 hover:shadow-md transition">
+                    {tech.isBlack ? (
+                      <Image
+                        src={tech.logo}
+                        alt={tech.name}
+                        width={40}
+                        height={40}
+                        className="object-contain w-10 h-10 dark:invert"
+                      />
+                    ):(
+                      <Image
+                        src={tech.logo}
+                        alt={tech.name}
+                        width={40}
+                        height={40}
+                        className="object-contain w-10 h-10"
+                      />
+                    )}
+
+                    <div>
+                      <h4 className="font-bold text-lg">{tech.name}</h4>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </motion.section>
   );
 }
