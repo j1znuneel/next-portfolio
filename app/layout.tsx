@@ -28,7 +28,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="lg:w-[40%] md:w-[90%] m-auto">
-            <Navbar />
+            <Navbar/>
             {children}
           </div>
         </ThemeProvider>

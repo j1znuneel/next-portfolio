@@ -69,7 +69,7 @@ const techStack: TechCategory[] = [
         name: "Django",
         description: "Python web framework",
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
-        isBlack:true
+        isBlack: true,
       },
     ],
   },
@@ -121,53 +121,81 @@ const techStack: TechCategory[] = [
   },
 ];
 
+// Accent colors for just the vertical pills
+const pillColors = {
+  Languages: "bg-blue-500",
+  Frontend: "bg-green-500",
+  Backend: "bg-purple-500",
+  Databases: "bg-amber-500",
+  "Tools & Platforms": "bg-gray-500",
+};
+
 export default function TechStack() {
   return (
     <motion.section
       initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
       transition={{ duration: 0.6 }}
       className="py-12 px-4 border-b"
     >
       <h2 className="text-3xl font-semibold mb-8">Tech Stack</h2>
-      <div className="space-y-5">
-        {techStack.map((category) => (
-          <div key={category.name}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {category.technologies.map((tech) => (
+      <div className="space-y-8">
+        {techStack.map((category, categoryIndex) => (
+          <motion.div
+            key={category.name}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.4 }}
+            className="px-4 rounded-lg"
+          >
+            <div className="flex items-center mb-3">
+              <div
+                className={`h-6 w-1.5 mr-2 rounded-full ${
+                  pillColors[category.name as keyof typeof pillColors] ||
+                  "bg-primary"
+                }`}
+              ></div>
+              <p className="text-sm uppercase tracking-wider text-muted-foreground font-medium">
+                {category.name}
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+              {category.technologies.map((tech, techIndex) => (
                 <motion.div
                   key={tech.name}
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
+                  viewport={{ once: false }}
+                  transition={{
+                    duration: 0.3,
+                    delay: categoryIndex * 0.1 + techIndex * 0.05,
+                  }}
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  className="group"
                 >
-                  <Card className="p-4 flex flex-row items-center gap-4 hover:shadow-md transition">
-                    {tech.isBlack ? (
-                      <Image
-                        src={tech.logo}
-                        alt={tech.name}
-                        width={40}
-                        height={40}
-                        className="object-contain w-10 h-10 dark:invert"
-                      />
-                    ):(
-                      <Image
-                        src={tech.logo}
-                        alt={tech.name}
-                        width={40}
-                        height={40}
-                        className="object-contain w-10 h-10"
-                      />
-                    )}
-
-                    <div>
-                      <h4 className="font-bold text-lg">{tech.name}</h4>
+                  <Card className="p-3 w-fit flex items-center justify-center h-full bg-white/80 dark:bg-card hover:shadow-md transition-all duration-200">
+                    <div className="flex items-center gap-3">
+                      <div className="flex-shrink-0 relative w-10 h-10">
+                        <Image
+                          src={tech.logo}
+                          alt={tech.name}
+                          fill
+                          className={`object-contain ${
+                            tech.isBlack ? "dark:invert" : ""
+                          }`}
+                        />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-base">{tech.name}</h4>
+                      </div>
                     </div>
                   </Card>
                 </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </motion.section>
