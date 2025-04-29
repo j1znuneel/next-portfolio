@@ -2,6 +2,8 @@
 
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { ProjectCard } from "@/components/custom/project-card";
+import { DesignCard } from "@/components/custom/design-card";
+import { SiFigma } from "react-icons/si";
 
 const personalProjects = [
   {
@@ -43,6 +45,29 @@ const openSourceContributions = [
   },
 ];
 
+const designWorks = [
+  {
+    title: "Saas Landing Page",
+    image: "/CaterEase.png",
+  },
+  {
+    title: "Grassroots Landing Page",
+    image: "/Grassroot.png",
+  },
+  {
+    title: "College Website Redesign",
+    image: "/NASC.png",
+  },
+  {
+    title: "Pastry Shop Hero Design",
+    image: "/Feraro.png",
+  },
+  {
+    title: "Dashboard Design",
+    image: "/EXACT dashboard design.png",
+  },
+];
+
 export default function ProjectsPage() {
   return (
     <section className="container mx-auto px-4 py-12">
@@ -78,7 +103,8 @@ export default function ProjectsPage() {
             Giving Back to the Community
           </h2>
           <p className="text-muted-foreground md:text-xl lg:text-base xl:text-xl">
-            I enjoy contributing to open-source projects,just software projects in general tbh.
+            I enjoy contributing to open-source projects, just software projects
+            in general tbh.
           </p>
         </div>
       </BlurFade>
@@ -87,6 +113,34 @@ export default function ProjectsPage() {
         {openSourceContributions.map((project, index) => (
           <BlurFade key={index} delay={0.1 * index}>
             <ProjectCard {...project} />
+          </BlurFade>
+        ))}
+      </div>
+
+      {/* Design Work Section */}
+      <BlurFade>
+        <div className="flex flex-col items-center text-center space-y-4 mt-16">
+          <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+            Design Work
+          </div>
+          <h2 className="text-3xl font-bold sm:text-5xl flex items-center gap-2 justify-center">
+            Designs
+            <span className="inline-flex rotate-12 items-center justify-center bg-white w-10 h-10 rounded-lg shadow-md p-1.5 opacity-80 transition-opacity group-hover:opacity-100">
+              <SiFigma className="h-5 w-5 text-black" />
+            </span>
+            I've Done
+          </h2>
+
+          <p className="text-muted-foreground md:text-xl lg:text-base xl:text-xl">
+            Some UI/UX and visual designs I've worked on.
+          </p>
+        </div>
+      </BlurFade>
+
+      <div className="grid grid-cols-1 gap-6 max-w-6xl mx-auto mt-10">
+        {designWorks.map((design, index) => (
+          <BlurFade key={index} delay={0.1 * index}>
+            <DesignCard title={design.title} image={design.image} />
           </BlurFade>
         ))}
       </div>
