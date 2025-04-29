@@ -13,10 +13,10 @@ import Markdown from "react-markdown";
 
 interface ProjectProps {
   title: string;
-  href: string;
-  description: string;
-  dates: string;
-  technologies: string[];
+  href?: string;
+  description?: string;
+  dates?: string;
+  technologies?: string[];
   image?: string;
 }
 
@@ -30,8 +30,24 @@ export function ProjectCard({
 }: ProjectProps) {
   return (
     <Card className="flex flex-col overflow-hidden rounded-xs border hover:shadow-lg transition-all py-0 pb-6 duration-300 ease-out h-full">
-      <Link href={href} target="_blank" className={cn("block cursor-pointer")}>
-        {image && (
+      {href ? (
+        <Link
+          href={href}
+          target="_blank"
+          className={cn("block cursor-pointer")}
+        >
+          {image && (
+            <Image
+              src={image}
+              alt={title}
+              width={500}
+              height={300}
+              className="w-full h-full object-cover"
+            />
+          )}
+        </Link>
+      ) : (
+        image && (
           <Image
             src={image}
             alt={title}
@@ -39,25 +55,36 @@ export function ProjectCard({
             height={300}
             className="w-full h-full object-cover"
           />
-        )}
-      </Link>
+        )
+      )}
+
       <CardHeader className="px-4">
         <CardTitle className="text-lg">{title}</CardTitle>
-        <time className="text-xs text-muted-foreground">{dates}</time>
-        <div className="prose text-sm text-muted-foreground">
-          <Markdown>{description}</Markdown>
-        </div>
+        {dates && (
+          <time className="text-xs text-muted-foreground">{dates}</time>
+        )}
+        {description && (
+          <div className="prose text-sm text-muted-foreground">
+            <Markdown>{description}</Markdown>
+          </div>
+        )}
       </CardHeader>
 
-      <CardContent className="mt-auto px-4">
-        <div className="mt-2 flex flex-wrap gap-1">
-          {technologies.map((tech) => (
-            <Badge key={tech} className="px-2 py-1 text-xs" variant="secondary">
-              {tech}
-            </Badge>
-          ))}
-        </div>
-      </CardContent>
+      {technologies && technologies.length > 0 && (
+        <CardContent className="mt-auto px-4">
+          <div className="mt-2 flex flex-wrap gap-1">
+            {technologies.map((tech) => (
+              <Badge
+                key={tech}
+                className="px-2 py-1 text-xs"
+                variant="secondary"
+              >
+                {tech}
+              </Badge>
+            ))}
+          </div>
+        </CardContent>
+      )}
     </Card>
   );
 }

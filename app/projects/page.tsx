@@ -2,7 +2,6 @@
 
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { ProjectCard } from "@/components/custom/project-card";
-import { DesignCard } from "@/components/custom/design-card";
 import { SiFigma } from "react-icons/si";
 
 const personalProjects = [
@@ -140,7 +139,13 @@ export default function ProjectsPage() {
       <div className="grid grid-cols-1 gap-6 max-w-6xl mx-auto mt-10">
         {designWorks.map((design, index) => (
           <BlurFade key={index} delay={0.1 * index}>
-            <DesignCard title={design.title} image={design.image} />
+            <ProjectCard
+              title={design.title}
+              image={design.image}
+              description=""
+              dates=""
+              technologies={[]}
+            />
           </BlurFade>
         ))}
       </div>
