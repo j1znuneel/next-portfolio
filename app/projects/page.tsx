@@ -7,7 +7,7 @@ import { SiFigma } from "react-icons/si";
 const personalProjects = [
   {
     title: "EXACT - Structured Question Paper Generator",
-    href: "#",
+    href: "https://exact-landing-page.vercel.app/",
     description:
       "A SaaS platform for LaTeX question paper generation.AI integration for question creation",
     dates: "2024 - Present",
@@ -16,7 +16,7 @@ const personalProjects = [
   },
   {
     title: "EXACT Landing page",
-    href: "#",
+    href: "https://exact-landing-page.vercel.app/",
     description: "A Landing Page created for the software Exact",
     dates: "2024 - Present",
     technologies: ["Next.js", "Django", "LaTeX", "OpenAI"],
@@ -46,20 +46,36 @@ const openSourceContributions = [
 
 const designWorks = [
   {
-    title: "Saas Landing Page",
-    image: "/CaterEase.png",
+    title: "ScreenRun Hero Redesign",
+    image: "/ScreenRun.png",
   },
   {
-    title: "Grassroots Landing Page",
-    image: "/Grassroot.png",
+    title: "Saas Landing Page",
+    image: "/CaterAssist.png",
+  },
+  {
+    title: "Kannur Tourism Hero Section",
+    image: "/Kannur.png",
+  },
+  {
+    title: "Feature Section",
+    image: "/Bento.png",
+  },
+  {
+    title: "Old Age Home Website",
+    image: "/Thanal.png",
+  },
+  {
+    title: "Pastry Shop Hero Design",
+    image: "/Feraro.png",
   },
   {
     title: "College Website Redesign",
     image: "/NASC.png",
   },
   {
-    title: "Pastry Shop Hero Design",
-    image: "/Feraro.png",
+    title: "Grassroots Landing Page",
+    image: "/Grassroot.png",
   },
   {
     title: "Dashboard Design",
