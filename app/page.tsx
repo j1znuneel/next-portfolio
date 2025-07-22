@@ -17,8 +17,8 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <TechStack />
       <Experience />
+      <TechStack />
     </>
   );
 }

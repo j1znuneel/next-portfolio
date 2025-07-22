@@ -140,7 +140,7 @@ export default function TechStack() {
       className="py-12 px-4 border-b"
     >
       <h2 className="text-3xl font-semibold mb-8">Tech Stack</h2>
-      <div className="space-y-8">
+      <div className="space-y-5">
         {techStack.map((category, categoryIndex) => (
           <motion.div
             key={category.name}
@@ -161,7 +161,7 @@ export default function TechStack() {
                 {category.name}
               </p>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            <div className="flex flex-wrap gap-2">
               {category.technologies.map((tech, techIndex) => (
                 <motion.div
                   key={tech.name}
@@ -173,22 +173,20 @@ export default function TechStack() {
                     delay: categoryIndex * 0.1 + techIndex * 0.05,
                   }}
                   whileHover={{ scale: 1.02, y: -2 }}
-                  className="group"
+                  className="h-10"
                 >
                   <Card className="p-3 w-fit flex items-center justify-center h-full bg-white/80 dark:bg-card hover:shadow-md transition-all duration-200">
                     <div className="flex items-center gap-3">
-                      <div className="flex-shrink-0 relative w-10 h-10">
+                      <div className="flex-shrink-0 relative w-5 h-5">
                         <Image
                           src={tech.logo}
                           alt={tech.name}
                           fill
-                          className={`object-contain ${
-                            tech.isBlack ? "dark:invert" : ""
-                          }`}
+                          className={`object-contain ${tech.isBlack ? "dark:invert" : ""}`}
                         />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-base">{tech.name}</h4>
+                        <p className="font-semibold text-sm">{tech.name}</p>
                       </div>
                     </div>
                   </Card>
