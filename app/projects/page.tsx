@@ -6,6 +6,42 @@ import { SiFigma } from "react-icons/si";
 
 const personalProjects = [
   {
+    title: "CaterEase",
+    href: "#",
+    description:
+      "A mobile app that helps catering managers find and hire staff like cooks and servers by posting event requirements and reviewing applications.",
+    dates: "2024",
+    technologies: ["Expo", "Django", "TypeScript", "Supabase"],
+    image: "/caterease.png",
+  },
+  {
+    title: "VaaniKart",
+    href: "https://github.com/j1znuneel/VaaniKart",
+    description:
+      "A WhatsApp bot that enables digitally illiterate vendors and farmers to create digital product catalogs. The bot supports native language input, auto-translates messages, and generates a website from the conversation.",
+    dates: "2024",
+    technologies: ["Django", "Next.js", "TypeScript"],
+    image: "/vaanikart.png",
+  },
+  {
+    title: "Crudify",
+    href: "https://crudify-ai.vercel.app/",
+    description:
+      "Generate CRUD operations for your backend in seconds,from your repo directly",
+    dates: "2024",
+    technologies: ["Next.js", "Tailwind", "TypeScript"],
+    image: "/crudifyai.jpg",
+  },
+  {
+    title: "Anthakshari",
+    href: "https://github.com/j1znuneel/Anthakshari-web",
+    description:
+      "A fun and interactive Anthakshari game to play with your friends.",
+    dates: "2024",
+    technologies: ["Next.js", "Tailwind", "TypeScript", "Socket.IO", "Express"],
+    image: "/anthakshari.png",
+  },
+  {
     title: "EXACT - Structured Question Paper Generator",
     href: "https://exact-landing-page.vercel.app/",
     description:
