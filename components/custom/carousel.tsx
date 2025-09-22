@@ -42,6 +42,7 @@ export function DesignCarouselRow({ designs, reverse = false }: DesignCarouselRo
               height={300}
               className="object-cover w-full h-full"
               draggable={false}
+              priority={true}
             />
           </div>
         ))}
