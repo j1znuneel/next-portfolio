@@ -3,6 +3,7 @@
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { ProjectCard } from "@/components/custom/project-card";
 import { SiFigma } from "react-icons/si";
+import Image from "next/image";
 
 const personalProjects = [
   {
@@ -82,6 +83,30 @@ const openSourceContributions = [
 
 const designWorks = [
   {
+    title: "Hero section",
+    image: "/blue.png",
+  },
+  {
+    title: "CaterEase screens",
+    image: "/caterease phone.png",
+  },
+  {
+    title: "Another hero",
+    image: "/Email.png",
+  },
+  {
+    title: "Another one",
+    image: "/streamline.png",
+  },
+  {
+    title: "Another one",
+    image: "/URBAN.png",
+  },
+  {
+    title: "Login screen",
+    image: "/X post login.png",
+  },
+  {
     title: "ScreenRun Hero Redesign",
     image: "/ScreenRun.png",
   },
@@ -118,6 +143,51 @@ const designWorks = [
     image: "/EXACT dashboard design.png",
   },
 ];
+
+
+const designWorksRow1 = designWorks.filter((_, i) => i % 2 === 0);
+const designWorksRow2 = designWorks.filter((_, i) => i % 2 !== 0);
+function DesignCarouselRow({
+    designs,
+    reverse = false,
+}: {
+    designs: typeof designWorks;
+    reverse?: boolean;
+}) {
+    const items = [...designs, ...designs];
+    return (
+        <div
+            className="overflow-hidden w-full"
+            style={{ maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)" }}
+        >
+
+            <div
+                className={`flex gap-6 w-max animate-carousel ${reverse ? "animate-carousel-reverse" : ""}`}
+                style={{
+                    animationDuration: "30s",
+                }}
+            >
+                {items.map((design, idx) => (
+                    <div
+                        key={idx}
+                        className="flex-shrink-0 rounded-xl overflow-hidden shadow-lg bg-white/80 backdrop-blur-md"
+                        style={{ width: 400, height: 300 }}
+                    >
+                        <Image
+                            src={design.image}
+                            alt={design.title}
+                            width={400}
+                            height={100}
+                            className="object-cover w-full h-full"
+                            draggable={false}
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
 
 export default function ProjectsPage() {
   return (
@@ -168,7 +238,6 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      {/* Design Work Section */}
       <BlurFade>
         <div className="flex flex-col items-center text-center space-y-4 mt-16">
           <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
@@ -181,25 +250,15 @@ export default function ProjectsPage() {
             </span>
             I've Done
           </h2>
-
           <p className="text-muted-foreground md:text-xl lg:text-base xl:text-xl">
             Some UI/UX and visual designs I've worked on.
           </p>
         </div>
       </BlurFade>
-
-      <div className="grid grid-cols-1 gap-6 max-w-6xl mx-auto mt-10">
-        {designWorks.map((design, index) => (
-          <BlurFade key={index} delay={0.1 * index}>
-            <ProjectCard
-              title={design.title}
-              image={design.image}
-              description=""
-              dates=""
-              technologies={[]}
-            />
-          </BlurFade>
-        ))}
+      {/* philipinte pari */}
+      <div className="flex flex-col gap-8 max-w-6xl mx-auto mt-10 ">
+        <DesignCarouselRow designs={designWorksRow1} />
+        <DesignCarouselRow designs={designWorksRow2} reverse />
       </div>
     </section>
   );
