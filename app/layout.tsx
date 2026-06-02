@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jishnu's Portfolio",
+  title: "Jishnu PN",
   description: "Web Developer & UI/UX Designer",
 };
 
