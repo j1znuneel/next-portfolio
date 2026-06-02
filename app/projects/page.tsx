@@ -7,6 +7,24 @@ import { DesignCarouselRow } from "@/components/custom/carousel";
 
 const personalProjects = [
   {
+    title: "PrefetchAI",
+    href: "https://prefetchai.vercel.app/",
+    description:
+      "A lightweight, dependency-free library that predicts user click intent in real-time. Combines mouse kinematics (velocity, acceleration, alignment) with Markov chains to trigger background data fetches before a user even clicks, significantly reducing perceived latency.",
+    dates: "2025",
+    technologies: ["TypeScript", "React", "npm"],
+    image: "/pre-fetch.png",
+  },
+  {
+    title: "CM SIM: KERALA",
+    href: "https://cm-sim.vercel.app/",
+    description:
+      "A retro-style fiscal simulator game where you step into the shoes of the Chief Minister of Kerala. Navigate a decade of fiscal turbulence (2026–2036) by managing liquid reserves, OMB debt, and public trust to survive elections and avoid federal takeover.",
+    dates: "2025",
+    technologies: ["Next.js", "TypeScript", "Tailwind"],
+    image: "/cm-sim.jpg",
+  },
+  {
     title: "CaterEase",
     href: "#",
     description:
@@ -52,14 +70,6 @@ const personalProjects = [
     image: "/exact-dashboard.png",
   },
   {
-    title: "EXACT Landing page",
-    href: "https://exact-landing-page.vercel.app/",
-    description: "A Landing Page created for the software Exact",
-    dates: "2024 - Present",
-    technologies: ["Next.js", "Django", "LaTeX", "OpenAI"],
-    image: "/exact-new.png",
-  },
-  {
     title: "Personal Portfolio",
     href: "https://j1znu-portfolio.vercel.app/",
     description:
@@ -67,7 +77,8 @@ const personalProjects = [
     dates: "2024",
     technologies: ["Next.js", "Tailwind", "TypeScript"],
     image: "/personal portfolio.png",
-  },
+  }
+  
 ];
 
 const openSourceContributions = [
@@ -151,75 +162,50 @@ const designWorksRow2 = designWorks.filter((_, i) => i % 2 !== 0);
 
 export default function ProjectsPage() {
   return (
-    <section className="container mx-auto px-4 py-12">
+    <section className="py-12 md:py-12">
       {/* Personal Projects Section */}
       <BlurFade>
-        <div className="flex flex-col items-center text-center space-y-4">
-          <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-            Personal Projects
-          </div>
-          <h2 className="text-3xl font-bold sm:text-5xl">Things I’ve Built</h2>
-          <p className="text-muted-foreground md:text-xl lg:text-base xl:text-xl">
-            Some projects I’ve worked on—either to solve real problems or just
-            to learn something new.
-          </p>
+        <h2 className="text-lg font-semibold mb-12 tracking-tighter text-zinc-900 dark:text-zinc-100 uppercase">
+          personal projects
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-20">
+          {personalProjects.map((project, index) => (
+            <ProjectCard key={index} {...project} index={index} />
+          ))}
         </div>
       </BlurFade>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 max-w-5xl mx-auto mt-10">
-        {personalProjects.map((project, index) => (
-          <BlurFade key={index} delay={0.1 * index}>
-            <ProjectCard {...project} />
-          </BlurFade>
-        ))}
-      </div>
+      {/* Open Source Section */}
+      <BlurFade delay={0.2}>
+        <h2 className="text-lg font-semibold mb-12 mt-40 tracking-tighter text-zinc-900 dark:text-zinc-100 uppercase">
+          open source
+        </h2>
 
-      {/* Open Source Contributions Section */}
-      <BlurFade>
-        <div className="flex flex-col items-center text-center space-y-4 mt-16">
-          <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-            Open Source Contributions
-          </div>
-          <h2 className="text-3xl font-bold sm:text-5xl">
-            Giving Back to the Community
-          </h2>
-          <p className="text-muted-foreground md:text-xl lg:text-base xl:text-xl">
-            I enjoy contributing to open-source projects, just software projects
-            in general tbh.
-          </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-20">
+          {openSourceContributions.map((project, index) => (
+            <ProjectCard key={index} {...project} index={index} />
+          ))}
         </div>
       </BlurFade>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 max-w-5xl mx-auto mt-10">
-        {openSourceContributions.map((project, index) => (
-          <BlurFade key={index} delay={0.1 * index}>
-            <ProjectCard {...project} />
-          </BlurFade>
-        ))}
-      </div>
-
-      <BlurFade>
-        <div className="flex flex-col items-center text-center space-y-4 mt-16">
-          <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-            Design Work
-          </div>
-          <h2 className="text-3xl font-bold sm:text-5xl flex items-center gap-2 justify-center">
-            Designs
-            <span className="inline-flex rotate-12 items-center justify-center bg-white w-10 h-10 rounded-lg shadow-md p-1.5 opacity-80 transition-opacity group-hover:opacity-100">
-              <SiFigma className="h-5 w-5 text-black" />
+      {/* Visual Design Section */}
+      <BlurFade delay={0.4}>
+        <div className="flex flex-col items-start mt-40 mb-12">
+          <h2 className="text-lg font-semibold tracking-tighter text-zinc-900 dark:text-zinc-100 uppercase flex items-center gap-2">
+            designs
+            <span className="inline-flex items-center justify-center w-6 h-6 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-md shadow-sm -rotate-12 mx-0.5">
+              <SiFigma className="h-3 w-3 text-zinc-900 dark:text-zinc-100" />
             </span>
-            I've Done
+            i've crafted
           </h2>
-          <p className="text-muted-foreground md:text-xl lg:text-base xl:text-xl">
-            Some UI/UX and visual designs I've worked on.
-          </p>
+        </div>
+        
+        <div className="flex flex-col gap-10 mt-4 overflow-hidden -mx-4 sm:-mx-0">
+          <DesignCarouselRow designs={designWorksRow1} />
+          <DesignCarouselRow designs={designWorksRow2} reverse />
         </div>
       </BlurFade>
-      {/* philipinte pari */}
-      <div className="flex flex-col gap-8 max-w-6xl mx-auto mt-10 ">
-        <DesignCarouselRow designs={designWorksRow1} />
-        <DesignCarouselRow designs={designWorksRow2} reverse />
-      </div>
     </section>
   );
 }

@@ -13,30 +13,35 @@ export default function Navbar() {
   useEffect(() => {
     setMounted(true);
   }, []);
-  if (!mounted) return null;
-  return (
-    <nav className="flex justify-between items-center p-4 lg:mt-12 border-b bg-background w-full">
-      <div className="flex gap-6 items-center font-semibold">jishnu pn.</div>
 
-      <div className="flex justify-between items-center gap-6">
-        <Link href="/" className="hover:underline">
+  if (!mounted) return null;
+
+  return (
+    <nav className="flex justify-between items-center py-6 lg:py-12 bg-transparent w-full">
+      <div className="flex gap-6 items-center font-medium tracking-tighter text-lg">
+        jishnu pn.
+      </div>
+
+      <div className="flex justify-between items-center gap-4 md:gap-8">
+        <Link href="/" className="text-sm font-medium hover:text-zinc-500 transition-colors tracking-tight">
           home
         </Link>
-        <Link href="/projects" className="hover:underline">
+        <Link href="/projects" className="text-sm font-medium hover:text-zinc-500 transition-colors tracking-tight">
           projects
         </Link>
-        <Link href="/blog" className="hover:underline">
+        <Link href="/blog" className="text-sm font-medium hover:text-zinc-500 transition-colors tracking-tight">
           blog
         </Link>
         <Button
           variant="ghost"
           size="icon"
+          className="h-8 w-8 hover:bg-zinc-100 dark:hover:bg-zinc-800"
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         >
           {theme === "dark" ? (
-            <Sun className="h-5 w-5" />
+            <Sun className="h-4 w-4" />
           ) : (
-            <Moon className="h-5 w-5" />
+            <Moon className="h-4 w-4" />
           )}
         </Button>
       </div>
